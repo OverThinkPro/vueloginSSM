@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.overthinkpro.vuelogin.db.mapper.LoginMapper">
+
+	<select id="isUser" parameterType="user" resultType="String">
+		SELECT username FROM `user` WHERE username=#{userName}
+		 AND `password`=#{password}
+	</select>
+	
+	<insert id="addUser" parameterType="user">
+		INSERT INTO `user` (id, username, password) 
+		VALUES (uuid(), #{userName}, #{password})
+	</insert>
+	
+</mapper>
